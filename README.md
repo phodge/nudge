@@ -1,7 +1,7 @@
 NUDGE
 =====
 
-A simple tool for telling an idle service to wake up and "do it's thing"
+A simple tool for telling an idle service to "wake up and do your thing."
 
 For example, you have a terminal window open on `computer1` where you want to
 monitor disk space free in `/tmp`. You could use a `while sleep 1` loop, or you
