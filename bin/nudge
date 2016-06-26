@@ -9,8 +9,7 @@ port identified by PORT, then immediately exit(0).
 If you already have an instance of nudge running listening mode, you can nudge
 it by specifying a HOST (an IP address, hostname, or just '-' for localhost).
 """
-from __future__ import (
-    absolute_import, division, unicode_literals, print_function)
+from __future__ import absolute_import, unicode_literals
 
 import sys
 import os.path
@@ -20,7 +19,7 @@ from argparse import ArgumentParser
 
 VERBOSE = False
 
-NUDGE_MESSAGE = "nudge!"
+NUDGE_MESSAGE = b"nudge!"
 
 
 def _verbose(message):
