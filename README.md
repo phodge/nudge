@@ -22,3 +22,13 @@ time you press `F5` in vim:
 
     # terminal 2 (vim)
     :nnoremap <F5> :silent !nudge - /tmp/my_unit_tests.sock<CR>
+
+
+CHANGELOG
+=========
+
+1.0.1
+- Runnable using python3
+
+1.0
+- Initial implementation
