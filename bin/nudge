@@ -11,11 +11,11 @@ it by specifying a HOST (an IP address, hostname, or just '-' for localhost).
 """
 from __future__ import absolute_import, unicode_literals
 
-import sys
 import os.path
 import socket
+import stat
+import sys
 from argparse import ArgumentParser
-
 
 VERBOSE = False
 
@@ -51,7 +51,14 @@ def _listen(endpoint):
         sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         conn = None
         try:
+            # create the unix socket
             sock.bind(endpoint)
+
+            # enable group write permission on the socket
+            perm = os.stat(endpoint).st_mode
+            _verbose("chmod'ing %s" % endpoint)
+            os.chmod(endpoint, perm | stat.S_IWGRP)
+
             sock.listen(1)
             _verbose("Listening on %s" % endpoint)
             try:
